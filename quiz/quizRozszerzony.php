@@ -15,8 +15,8 @@ require 'pytaniaIOdpowiedzi.php'
 session_start();
 
 if (!isset($_POST['pytanie'])) {
-    $_POST['pytanie'] = 0;
-    $_SESSION['punkty']  = 0;
+    $_POST['pytanie']   = 0;
+    $_SESSION['punkty'] = 0;
 } else {
     $pytanieIOdpowiedzi       = $pytaniaIOdpowiedzi[$_POST['pytanie']];
     $numerPoprawnejOdpowiedzi = $pytanieIOdpowiedzi[2];
@@ -29,8 +29,8 @@ if (!isset($_POST['pytanie'])) {
     }
     $_POST['pytanie']++;
 
-    if(($_POST['pytanie']+1) > count($pytaniaIOdpowiedzi)){
-        echo "Dziękujemy za wypełnienie! <br/> Poprawnych odpowiedzi: ".$_SESSION['punkty'];
+    if (($_POST['pytanie'] + 1) > count($pytaniaIOdpowiedzi)) {
+        echo "Dziękujemy za wypełnienie! <br/> Poprawnych odpowiedzi: " . $_SESSION['punkty'];
         echo "<br /><a href='quizRozszerzony.php'>Zagraj jeszcze raz</a>";
         exit;
     }
@@ -60,7 +60,7 @@ if (!isset($_POST['pytanie'])) {
         ?>
     </li>
     <br>
-    <input type="hidden" name="pytanie" id="" value="<?php echo (isset($_POST['pytanie']) ? $_POST['pytanie'] : 0) ?>"/>
+    <input type="hidden" name="pytanie" id="" value="<?php echo(isset($_POST['pytanie']) ? $_POST['pytanie'] : 0) ?>"/>
 
     <input type="submit" value="Wyślij"/>
 </form>
